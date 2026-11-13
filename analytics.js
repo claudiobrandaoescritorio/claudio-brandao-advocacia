@@ -4,7 +4,12 @@
 (()=>{
 'use strict';
 const ID='G-XXXXXXXXXX';
-if(!/^G-[A-Z0-9]{6,}$/.test(ID)||ID==='G-XXXXXXXXXX')return;
+if(!/^G-[A-Z0-9]{6,}$/.test(ID)||ID==='G-XXXXXXXXXX'){
+  /* sem ID configurado: o link "Preferências de cookies" não faz nada (e não rola a página ao topo) */
+  const p0=document.getElementById('cookie-prefs');
+  if(p0)p0.addEventListener('click',e=>e.preventDefault());
+  return;
+}
 
 const KEY='cb_consent';
 const get=()=>{try{return localStorage.getItem(KEY)}catch(e){return null}};
