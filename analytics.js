@@ -51,7 +51,7 @@ function banner(){
   d.id='cb-ck';d.setAttribute('role','dialog');d.setAttribute('aria-label','Aviso de cookies');
   d.innerHTML='<p>Usamos o Google Analytics para entender quantas pessoas visitam o site e quais botões são mais usados. Nada é coletado sem a sua permissão. <a href="/politica-de-privacidade.html">Saiba mais</a>.</p><div><button type="button" class="y">Aceitar</button><button type="button" class="n">Recusar</button></div>';
   d.querySelector('.y').onclick=()=>{set('granted');d.remove();load()};
-  d.querySelector('.n').onclick=()=>{set('denied');d.remove()};
+  d.querySelector('.n').onclick=()=>{set('denied');window['ga-disable-'+ID]=true;d.remove()};
   document.body.appendChild(d);
 }
 
